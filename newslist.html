@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: rgb(115, 115, 114);
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        ul {
+            list-style-type: none; 
+        }
+        .newslist {
+            width: 360px;
+            height: 200px;
+            margin: 20px auto;
+        }
+        .newslist .tab {
+            background-color: #bcecf7;
+            height: 20px;
+            border: 1px solid #eee;
+            border-left: 0;
+        }
+        .newslist .tab a {
+            margin-top: -1px;
+            display: block;
+            background-color: white;
+            border-top: 2px solid #f69d59;
+            border-right: 1px solid #eee;
+            width: 80px;
+            height: 20px;
+            line-height: 19px;
+            text-align: center;
+        }
+        .newslist .bg {
+            background-color: white;
+            height: 180px;
+            padding: 5px;
+
+        }
+        
+        .newslist .bg li {
+            padding-left: 15px;
+            background-image: url(./button.png);
+            background-repeat: no-repeat; 
+            background-size: 10px 10px;
+            background-position: 0 center;
+        }
+
+        .newslist .bg li a {
+            padding-left: 20px;
+            background-image: url(./megaphone.png);
+            background-repeat: no-repeat; 
+            background-size: 16px 16px;
+            background-position: 0 center;
+            
+            line-height: 24px;
+        }
+
+        .newslist .bg li a:hover {
+            color: #f69d59;
+        }
+    </style>
+</head>
+<body>
+    <!-- newslist= tab+content -->
+    <div class="newslist">
+        <div class="tab"><a href="#">News</a></div>
+        <div class="bg">
+            <ul>
+                <li><a href="#"> Knox Grammar teacher's alleged message ...</a></li>
+                <li><a href="#"> The 'invisible' facelift that's better than fillers</a></li>
+                <li><a href="#"> Your body ages rapidly in two 'bursts', at 44 and </a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+

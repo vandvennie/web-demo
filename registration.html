@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+</head>
+
+<body>
+    <h1>Registration</h1>
+    <div>
+        <form>
+            <!-- personal info -->
+            <h3>Personal Information</h3>
+            <label>Name</label> <input type="text" placeholder="Please enter your full name">
+            <br><br>
+            <label>Password</label> <input type="password" placeholder="Please enter your password">
+            <br><br>
+            <label>Confirm Password</label><input type="password" placeholder="Please enter your password">
+            <br><br>
+            <label>Gender</label> <label><input type="radio" name="Gender"> Male </label>
+            <label><input type="radio" name="Gender"> Famale </label>
+            <br><br>
+            <label>Country</label> <select name="Country">
+                <option value="" disabled selected hidden>Select your country</option>
+                <option value="usa">USA</option>
+                <option value="canada">Canada</option>
+                <option value="uk">UK</option>
+                <option value="au">Australia</option>
+            </select>
+
+            <!-- education infor -->
+            <h3>Educational Information</h3>
+            <label> Certification </label>
+            <select name="certification">
+                <option value="" disabled selected hidden>Select your current certification</option>
+                <option value="hs">High School</option>
+                <option value="bachelor">Bachelor</option>
+                <option value="master">Master</option>
+                <option value="doctor">Doctor</option>
+            </select>
+            <br><br>
+            <label>School Name</label> <input type="text" placeholder="Please enter your school name">
+            <br><br>
+            <label>Major</label> <input type="text" placeholder="Please enter your major">
+            <br><br>
+            <label>Period of Campus</label>
+            <select name="start">
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
+            --
+            <select name="end">
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
+
+            <!-- working info -->
+            <h3>working Information</h3>
+            <label>Company Name</label> <input type="text" placeholder="Please enter your company name">
+            <br><br>
+            <label>Description</label>
+            <br> 
+            <textarea></textarea>
+            <br><br>
+            <!-- conditions -->
+            <input type="checkbox" ><label>Agree the conditions below:</label>
+            <ul>
+                <li><a href="#">Service Agreeme</a></li>
+                <li><a href="#">Privacy Agreeme</a></li>
+            </ul><br><br>
+            <!-- button -->
+             <button>Sign In</button>
+             <button type="reset">Clean</button>
+
+        </form>
+</body>
+
+</html>

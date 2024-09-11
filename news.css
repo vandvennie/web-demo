@@ -1,0 +1,24 @@
+h1 {
+    text-align: center;
+    color: #333333;
+    font-size: 30px;
+    font-weight: 400
+}
+.small-title {
+    color: #999;
+    font-size: 14px;
+    
+}
+.article {
+    font-size: 18px;
+    color: #333333;
+}
+
+.img {
+    text-align: center;
+}
+
+a {
+    text-decoration: underline;
+    color: blue;
+}
