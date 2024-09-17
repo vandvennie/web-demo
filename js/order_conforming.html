@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conforming Page</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: bisque;
+    }
+
+    h1 {
+      display: flex;
+      justify-content: center;
+      margin: 30px;
+    }
+
+    table {
+      /* 合并边框 */
+      border-collapse: collapse;
+      height: 80px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    th {
+      padding: 5px 20px;
+    }
+
+    table,th,td {
+      border: 1px solid black;
+    }
+    .conform {
+      height: 30px;
+      width: 100px;
+      background-color: rgb(240, 88, 33);
+      border-radius: 15px;
+      text-align: center;
+      line-height: 30px;
+      margin: 50px auto;
+    }
+
+    .conform:active {
+      background-color: brown;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Conforming Your Order</h1>
+  
+  <script>
+    let pPrice = Number(prompt("Product's price"))
+    let pQuantity = Number(prompt("Number of Product"))
+    let pAddress = prompt("Your address")
+    pTotal = Number(pPrice * pQuantity)
+    document.write(`
+      <table>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Deliver Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>iPhone 16</td>
+            <td>\$${pPrice}</td>
+            <td>${pQuantity}</td>
+            <td>${pTotal}</td>
+            <td>${pAddress}</td>
+          </tr>
+        </tbody>
+      </table>
+    `)
+  </script>
+  <div class="conform" onclick="onConfirm()">Conform</div>
+    <script>
+      function onConfirm(){
+        alert("Success");
+      }
+    </script>
+  </body>
+</html>
