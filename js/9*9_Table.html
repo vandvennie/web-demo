@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nine Nine Multiplication Table</title>
+  <style>
+    span {
+      display: inline-block;
+      border: 1px solid black;
+      width: 100px;
+      /* height: 15px; */
+      padding: 5px 10px;
+      margin: 2px; 
+      border-radius: 5px;
+      text-align: center
+    }
+  </style>
+</head>
+<body>
+  <script>
+    for (i=0; i<9; i++) {
+      for (j=0; j<=i; j++) {
+        document.write(`<span>${i+1}×${j+1}=${(i+1)*(j+1)}</span>`)
+      }
+      document.write(`<br>`)
+    }
+  </script>
+</body>
+</html>
