@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATM</title>
+</head>
+<body>
+  <script>
+    let balance = 100
+    let i = 1
+    while (i===1){
+      let op = +prompt('Dear customer, what do you want to do today?\n1. Withdraw\n2. Save money\n3. Your balance\n4. Exit');
+
+      switch (op) {
+        case 1://withdraw
+          withdraw = +prompt('How much you need to withdraw?')
+          if (withdraw <= balance) {
+            balance = balance - withdraw
+            alert(`Successful! Your balance is \$${balance} now.`)
+          } else {
+            alert(`Sorry! Your balance is insufficient.`)
+          }
+          break
+        case 2://save
+          save = +prompt('How much you need to save?')
+          balance = balance + save
+          alert(`Successful! Your balance is \$${balance} now.`)
+          break
+        case 3://balance
+          alert(`Your balance is \$${balance}.`)
+          break
+        case 4://exit
+          alert('Thank you for using our service!')
+          break
+        default://exit
+          break
+      }
+      if (op === 4) {
+        i++
+      }
+    }
+  </script>
+</body>
+</html>
