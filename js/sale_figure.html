@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h3 {
+      width: 500px;
+      text-align: center;
+    }
+    .box {
+      display: flex;
+      border-left: 1px solid black;
+      border-bottom: 1px solid black;
+      width: 500px;
+      align-items: flex-end;
+      justify-content: space-evenly;
+      text-align: center
+    }
+    .box>div>div {
+      background-color: skyblue;
+      border: 0;
+      width: 80px;
+      margin: 0 10px;
+    }
+    .box span {
+      display: inline-block;
+      margin: 10px 0 0 0;
+    }
+    
+    .box p {
+      font-weight: bold;
+      /* font-size:20px ; */
+      margin: 0 0 -18.5px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+  1 input data and save in arrage
+  2 loop arrage set the height of bar chart
+  3 design the bar chart
+  -->
+  <h3>Quarterly Sales</h3>
+  <script>
+    let data = []
+    for (i=0; i<4; i++) {
+      num = +prompt('please input the Quarterly Sales of this year:')
+      data.push(num)
+    // console.log(data)
+    }
+    document.write(`
+      <div class="box">
+        <div>
+          <span>${data[0]}</span>
+          <div style="height: ${data[0]}px;"></div>
+          <p>Season 1</p>
+        </div>
+        <div>
+          <span>${data[1]}</span>
+          <div style="height: ${data[1]}px;"></div>
+          <p>Season 2</p>
+        </div>
+        <div>
+          <span>${data[2]}</span>
+          <div style="height: ${data[2]}px;"></div>
+          <p>Season 3</p>
+        </div>
+        <div>
+          <span>${data[3]}</span>
+          <div style="height: ${data[3]}px;"></div>
+          <p>Season 4</p>
+        </div>
+        
+      </div>
+    `)
+
+    
+
+  
+
+  </script>
+</body>
+</html>
