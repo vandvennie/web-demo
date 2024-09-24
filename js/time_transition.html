@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+      let second = +prompt('Please input number of seconds:')
+      function zero (a) {
+        a = a < 10 ? '0' + a : a
+        return a
+      }
+      function tranSec(num) {
+        hour =  parseInt(num / 60 / 60 % 24)
+        min = parseInt(num / 60 % 60)
+        sec = num % 60
+        hour = zero(hour)
+        min = zero(min)
+        sec = zero(sec)
+        return `Time is ${hour} hours ${min} minutes and ${sec} seconds`
+      }
+      
+      document.write(str=tranSec(second))
+  </script>
+</body>
+</html>
