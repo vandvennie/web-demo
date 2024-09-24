@@ -50,36 +50,17 @@
       data.push(num)
     // console.log(data)
     }
-    document.write(`
-      <div class="box">
+    document.write(`<div class="box">`)
+      for (j=0; j<data.length; j++) {
+        document.write(`
         <div>
-          <span>${data[0]}</span>
-          <div style="height: ${data[0]}px;"></div>
-          <p>Season 1</p>
+          <span>${data[j]}</span>
+          <div style="height: ${data[j]}px;"></div>
+          <p>Season ${j+1}</p>
         </div>
-        <div>
-          <span>${data[1]}</span>
-          <div style="height: ${data[1]}px;"></div>
-          <p>Season 2</p>
-        </div>
-        <div>
-          <span>${data[2]}</span>
-          <div style="height: ${data[2]}px;"></div>
-          <p>Season 3</p>
-        </div>
-        <div>
-          <span>${data[3]}</span>
-          <div style="height: ${data[3]}px;"></div>
-          <p>Season 4</p>
-        </div>
-        
-      </div>
-    `)
-
-    
-
-  
-
+        `)
+      }
+    document.write(`</div>`)
   </script>
 </body>
 </html>
