@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Generate user name
+    let figureName = ['赵云', '黄忠', '关羽', '张飞', '马超', '刘备', '曹操']
+    function randomFun(N,M) {
+      return Math.floor(Math.random() * (M - N + 1)) +N
+    } 
+    document.write(`<h3>I 💛 4399</h3>`)
+    let i = randomFun(0,6)
+    let fname = figureName[i]
+    //document.write(fname)
+
+    // delete displayed name from arrage
+    figureName.slice(i,1)
+    j = randomFun(1,10)
+    let gameType = +prompt(`Hello player ${fname}, please chose game you'd like to play:
+      1. Small or Big
+      2. Monkey Guess`)
+
+    if (gameType===1) {
+      //small or big
+      let userNum = +prompt(`Please input a number between 1-10:`)
+      if (userNum >= 0 && userNum <=10){
+        document.write(`<h4>Small or Big</h4>`)
+        document.write(`
+          <p>Dealer: ${j}
+          <br>
+          Player ${fname}: ${userNum}</p>`)
+        if (userNum > j) {
+            document.write(`<p>Player ${fname} win.</p>`)
+          } else if (userNum < j) {
+            document.write(`<p>Dealer win.</p>`)
+          } else {
+            document.write("Push!")
+
+          }
+      } else {
+        alert("You enter is incorrect.")
+      }
+    } else {
+      // MonkeyGuess
+      let flag = true //switch 开关变量 turn on
+      for (a=1; a<=3; a++) {
+        let fNum = +prompt(`Please input a guessed number between 1-10.`)
+        if (fNum > j) {
+          alert("Your number is bigger than Dealer's. Please try again.")
+        } else if (fNum < j) {
+          alert("Your number is smaller than Dealer's. Please try again.")
+        } else {
+          flag = false //turn off 关闭开关
+          alert("Congratulation! Your number is correct.")
+          break
+        }
+      }
+      if (flag) { //判断开关
+        alert("Your entering number has run out.")
+      }
+      document.write(`<h4>Monkey Guess</h4>`)
+      document.write(`<p>Dealer's number: ${j}</p>`)
+    }
+  </script>
+</body>
+</html>
