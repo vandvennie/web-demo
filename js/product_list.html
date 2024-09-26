@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>product list</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .product {
+      display: flex;
+      flex-direction: column;
+      background-color: #eeeeee;
+      /* height: 500px; */
+      width: 1000px;
+      border-radius: 10px;
+      margin: 10px auto;
+      padding: 20px;
+    }
+
+  .product .header {
+    display: flex;
+    height: 30px;
+    width: 960px;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .product .header div {
+    font-size: large;
+    color: rgb(64, 64, 64);
+    font-weight: bolder;
+    margin: 10px 0;
+  }
+
+  .product .header span {
+    color: rgb(128, 128, 128);
+    text-align: right;
+    font-weight: lighter;
+    margin: 10px 0; 
+  }
+  .product .list {
+    display: flex;
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+  }
+
+  .product .list .card {
+    width: 200px;
+    height: 300px;
+    background-color: white;
+    margin: 10px 20px;
+  }
+  .card .discribe {
+    padding: 10px;
+    border-top: rgb(233, 233, 233) solid 1px;
+  }
+  .card h4 {
+    font-size: larger;
+    height: 70px;
+  }
+  .card .tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card .tag div {
+    color: orangered;
+    /* font-size: large; */
+    /* margin-right: 5px; */
+  }
+  .card .tag span {
+    color: #808080;
+    text-align: right;
+    /* font-size: large; */
+    /* margin-right: 5px; */
+  }
+  </style>
+</head>
+<body>
+  <!-- 
+  1. header (module name and all)
+  2. outside box for all product card
+  3. product card
+    image, title, tag, trend
+  4. Read data to render multiple cards
+  -->
+  <div class="product">
+    <div class="header">
+      <div>Special courses</div>
+      <span>all >></span>
+    </div>
+    <div class="list">
+      
+      <script>
+        let proData = [
+          {pimage:"./image/cleaning.png", pname: 'Foundations', level: "Beginner", trend: 10284},
+          {pimage:"./image/pet.png", pname: 'Full Stack Ruby on Rails', level: "Advanced", trend: 203},
+          {pimage:"./image/riding.png", pname: "Full Stack JavaScript", level: "Advanced", trend: 937},
+          {pimage:"./image/surfing.png", pname: "jQuery", level: "Advanced", trend: 812},
+          {pimage:"./image/traveling.png", pname: "Node.js", level: "Advanced", trend: 1230}
+
+
+        ]
+        for (i=0; i<proData.length; i++) {
+          document.write (`<div class="card">`)
+            document.write (`<img src="${proData[i].pimage}" alt="" style="background-color: lightblue; width: 200px; height: 180px;">`)
+            document.write (`
+              <div class="discribe">
+                <h4>${proData[i].pname}</h4>
+                <div class="tag">
+                  <div>${proData[i].level}</div>
+                  <span>
+                  <img src="./image/play.png" alt="" style="width: 15px; height: 15px;">
+                  ${proData[i].trend}
+                  </span>
+
+                  </div>
+              </div>
+            `)
+          document.write (`</div>`)
+          
+        }
+
+        
+      </script>
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>
