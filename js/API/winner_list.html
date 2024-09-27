@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>winner List</title>
+  <style>
+    div {
+      display: flex;
+      flex-direction: column;
+      height: 300px;
+      width: 300px;
+      background-color: brown;
+      color: aliceblue;
+      text-align: center;
+      margin: 10px auto;
+      align-items: center; /* 垂直居中 */
+      justify-content: center;/* 水平居中 */
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1 style="color: black;">List of winners</h1>
+    <h2>
+      <span>First Prize: </span>
+      <span id="name1"></span>
+    </h2>
+    <h3>
+      <span>Second Prize: </span>
+      <span id="name2"></span>
+    </h3>
+    <h4>
+      <span>Third Prize: </span>
+      <span id="name3"></span>
+    </h4>
+  </div>
+  <script>
+    const uname = ['Alex', 'Wanda', 'Veronica', 'Tommy']
+    const name1 = document.querySelector('h2 #name1')
+    const name2 = document.querySelector('h3 #name2')
+    const name3 = document.querySelector('h4 #name3')
+    
+    let i = Math.floor(Math.random() * (3+1))
+    name1.innerHTML = uname[i]
+    uname.splice(i,1)
+  
+    i = Math.floor(Math.random() * (2+1))
+    name2.innerHTML = uname[i]
+    uname.splice(i,1)
+
+    i = Math.floor(Math.random() * (1+1))
+    name3.innerHTML = uname[i]
+    uname.splice(i,1)
+  </script>  
+</body>
+</html>
