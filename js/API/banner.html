@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    ul {
+      list-style: none;
+      /* padding-left: 0; 可选，移除默认的内边距 */
+    }
+    .banner {
+      display: flex;
+      flex-direction: column;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 650px;
+      align-items: center;
+      justify-content: center;
+      /* padding: 25px; */
+    }
+    .banner p {
+      font-size: 100px;
+      color: aliceblue;
+      padding: 230px 0;
+    }
+    
+    .dot {
+      display: flex;
+      background-color: rgb(151, 151, 151);
+      border-radius: 7px;
+      margin: 15px;
+    }
+    .dot li {
+      /* display: inline-block; */
+      width: 10px;
+      height: 10px;
+      margin: 10px;
+      /* padding: 15px; */
+      background-image: url("banner/Dot.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .dot li.active {
+      background-image: url("banner/Dot_dark.png");
+      width: 10px;
+      height: 10px;
+      margin: 10px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <p></p>
+    <ul class="dot">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+     
+  </div>
+  <script>
+    let cont = [
+      {img: "banner/banner1.png", title: "The legendary little blue bird."},
+      {img: "banner/banner2.png", title: "Pink, love at first sight."},
+      {img: "banner/banner3.jpg", title: "Life is the ocean."}
+    ]
+    const banner = document.querySelector('.banner')
+    const title = document.querySelector('.banner p')
+    const random = Math.floor(Math.random() * cont.length)
+    banner.style.backgroundImage = `url(${cont[random].img})`
+    title.innerHTML = `<strong>${cont[random].title}</strong>`
+    const dot = document.querySelector(`.dot li:nth-child(${random + 1})`)
+    dot.classList.add('active')
+    // banner.classList.toggle('bannerImg')
+  </script>
+</body>
+</html>

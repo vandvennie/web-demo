@@ -41,15 +41,15 @@
     const name2 = document.querySelector('h3 #name2')
     const name3 = document.querySelector('h4 #name3')
     
-    let i = Math.floor(Math.random() * (3+1))
+    let i = Math.floor(Math.random() * uname.length)
     name1.innerHTML = uname[i]
     uname.splice(i,1)
   
-    i = Math.floor(Math.random() * (2+1))
+    i = Math.floor(Math.random() * uname.length)
     name2.innerHTML = uname[i]
     uname.splice(i,1)
 
-    i = Math.floor(Math.random() * (1+1))
+    i = Math.floor(Math.random() * uname.length)
     name3.innerHTML = uname[i]
     uname.splice(i,1)
   </script>  
