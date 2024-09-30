@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+  <style>
+    .timer  {
+      display: flex;
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      background-color: aquamarine;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="timer">
+    <div class="h">01</div>
+    <span> : </span>
+    <div class="m">11</div>
+    <span> : </span>
+    <div class="s">11</div>
+  </div>
+  <script>
+    const timer = document.querySelector('.timer')
+    const hh = document.querySelector('div.h')
+    const mm = document.querySelector('div.m')
+    const ss = document.querySelector('div.s')
+    function countdown(a) {
+      let currentValue = parseInt(a.innerHTML, 10); // 将 innerHTML 转换为整数
+
+      if (currentValue > 0) {
+        // 在倒计时为 1-9 之间时，添加前导 0
+        if (currentValue <= 10) {
+          a.innerHTML = '0' + (currentValue - 1);
+        } else {
+          // 当大于10时，正常递减
+          a.innerHTML = currentValue - 1;
+        }
+      } else {
+        // 如果倒计时已经到 0，则重置或停止
+        a.innerHTML = '00'; // 可以根据需求调整
+        if (typeof ss !== 'undefined') {
+          ss.innerHTML = 11; // 假设 ss 是另一个计时器元素
+        }
+      }
+    }
+
+    let sn = setInterval('countdown(ss)', 1000)
+    let mn = setInterval('countdown(mm)', 11000)
+    let hn = setInterval('countdown(hh)', 121000)
+    
+    function stop() {
+      clearInterval(sn) 
+      clearInterval(mn)
+      clearInterval(hn)
+      timer.style.backgroundColor = "#f1f1f1"
+      timer.style.color = "#fff"
+
+    }
+    setInterval(stop, 6000)
+    
+  </script>
+</body>
+</html>
