@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Banner</title>
   <style>
     * {
       padding: 0;
@@ -64,7 +64,7 @@
   <div class="banner">
     <p></p>
     <ul class="dot">
-      <li></li>
+      <li class="active"></li>
       <li></li>
       <li></li>
     </ul>
@@ -78,12 +78,24 @@
     ]
     const banner = document.querySelector('.banner')
     const title = document.querySelector('.banner p')
-    const random = Math.floor(Math.random() * cont.length)
-    banner.style.backgroundImage = `url(${cont[random].img})`
-    title.innerHTML = `<strong>${cont[random].title}</strong>`
-    const dot = document.querySelector(`.dot li:nth-child(${random + 1})`)
-    dot.classList.add('active')
-    // banner.classList.toggle('bannerImg')
+    //const dots = document.querySelectorAll(`.dot li`)
+    let i = 0
+    
+    let n = setInterval(function(){
+      if (i >= cont.length) {
+        i = 0
+        
+      } 
+      banner.style.backgroundImage = `url(${cont[i].img})`
+      title.innerHTML = `<strong>${cont[i].title}</strong>`  
+      //dots.forEach(dot => dot.classList.remove('active'));   
+      //dots[i].classList.add('active')
+      document.querySelector('.dot .active').classList.remove('active')
+      document.querySelector(`.dot li:nth-child(${i+1})`).classList.add('active')//li start at 1
+
+      i++ 
+      
+    }, 2000)
   </script>
 </body>
 </html>
