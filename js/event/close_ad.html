@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advertising</title>
+  <style>
+    .ad {
+      position: relative;
+      width: 900px;
+      height: 200px;
+      background-color: #eeabab;
+      text-align: center;
+      line-height: 200px;
+      margin: 10px auto;
+      font-size: 60px;
+
+    }
+    .ad img {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 20px;
+      height: 20px;
+      cursor: pointer;/* 箭头变小手 */
+    }
+    .ad img:hover {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="ad">I'm an advertising.<img src="./close.png" alt="">
+  </div>
+  <script>
+    const ad = document.querySelector('.ad')
+    const close = document.querySelector('.ad img')
+    close.addEventListener('click', function(){
+      ad.classList.add('hidden')
+    })
+  </script>
+</body>
+</html>
