@@ -94,24 +94,13 @@
     //const dots = document.querySelectorAll(`.dot li`)
     let i = 0
     let n
-    //自动轮播函数
-    function autoStart() {
-      n = setInterval(function(){
-        i++
-        if (i >= cont.length) {
-          i = 0
-        } 
-        updateBanner(i)
-        //dots.forEach(dot => dot.classList.remove('active'));   
-        //dots[i].classList.add('active')
-        console.log(i)
-      }, 5000)
-    }
-
+    
     //重制自动轮播时间
     function resetBanner() {
       clearInterval(n)
-      autoStart()
+      n = setInterval(function(){
+      rbutton.click()
+    }, 3000)
     }
 
     //更新banner样式函数
@@ -121,6 +110,11 @@
       document.querySelector('.dot .active').classList.remove('active')
       document.querySelector(`.dot li:nth-child(${i+1})`).classList.add('active')//li start at 1
     }
+
+    //自动调用点击事件，click() 必须带有小括号
+    n = setInterval(function(){
+      rbutton.click()
+    }, 3000)
 
     //点击更新到上一张banner样式，并重制自动轮播
     lbutton.addEventListener('click',function(){
@@ -141,9 +135,16 @@
       updateBanner(i)
       resetBanner()
     })
-
-    autoStart()
-
+    console.log(n)
+    
+    banner.addEventListener('mouseenter', function() {
+      console.log('Paused');
+      clearInterval(n)
+    })
+    banner.addEventListener('mouseleave', function() {
+      console.log('Resumed');
+      resetBanner()
+    })
 
 
   </script>
