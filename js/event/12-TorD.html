@@ -95,15 +95,14 @@
     const str = document.querySelector('.card .start')
     const stp = document.querySelector('.card .stop')
     let i = 0
-    let n
+    let n//这里需要声明一个全局变量
     str.addEventListener('click', function(){
-      n = setInterval(function(){//这里需要声明一个全局变量
+      n = setInterval(function(){
         if (qzs.length === 0) {
-          qz.innerHTML = 'We ran out of questions.';
-          clearInterval(n);  // 停止定时器
-          str.disabled = true
-          stp.disabled = true 
-          return;  // 结束函数
+          qz.innerHTML = 'We ran out of questions.'
+          clearInterval(n)  // 停止定时器
+          str.disabled = stp.disabled = true 
+          return  // 结束函数
         }
 
         // if (qzs.length === 1) {
