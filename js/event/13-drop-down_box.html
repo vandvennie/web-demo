@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>drop-down box</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    .search {
+      width: 180px;
+      height: 150px;
+      background-color: antiquewhite;
+      margin: 20px auto;
+      padding: 10px;
+      text-align: center;
+    }
+    .search input {
+      width: 150px;
+      border: 1px #f1f1f1 solid;
+    }
+    .search ul {
+      list-style: none;
+      text-align: left;
+      padding: 10px;
+    }
+    
+    .suggestions {
+      width: 150px;
+      height: 100px;
+      background-color: white;
+      margin: 0;
+    
+    }
+
+    .borderLine {
+      border: 1px orange solid;
+    }
+  </style>
+</head>
+<body>
+  <div class="search">
+    <input type="text" placeholder="Search...">
+    <ul class="suggestions" style="display: none; border: o;">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+  <script>
+    const input = document.querySelector('[type=text]')//属性选择器
+    const sugg = document.querySelector('.search .suggestions')
+    const lis = document.querySelectorAll('.search li')
+    input.addEventListener('focus', function(){
+      sugg.style.display = 'inline-block'
+      sugg.classList.add("borderLine")
+      input.classList.add("borderLine")
+    })
+    input.addEventListener('blur', function(){
+      sugg.style.display = 'none'
+      sugg.classList.remove("borderLine")
+      input.classList.remove("borderLine")
+    })
+
+  </script>
+</body>
+</html>
