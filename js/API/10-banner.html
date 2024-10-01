@@ -17,18 +17,28 @@
     .banner {
       display: flex;
       flex-direction: column;
+      background-image: url("banner/banner1.png");
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      height: 650px;
+      height: 485px;
+      width: 1000px;
       align-items: center;
       justify-content: center;
-      /* padding: 25px; */
+      margin: 10px auto;
+    }
+    .banner .lr {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
     }
     .banner p {
-      font-size: 100px;
+      width: 900px;
+      font-size: 70px;
       color: aliceblue;
-      padding: 230px 0;
+      text-align: center;
+      padding: 100px 0;
     }
     
     .dot {
@@ -62,7 +72,7 @@
 </head>
 <body>
   <div class="banner">
-    <p></p>
+    <div class="lr"><img class="l" src="./banner/left.png" alt="" style="height: 30px;" ><p>The legendary little blue bird.</p><img class="r" src="./banner/right.png" alt="" height="30px"></div>
     <ul class="dot">
       <li class="active"></li>
       <li></li>
@@ -78,24 +88,64 @@
     ]
     const banner = document.querySelector('.banner')
     const title = document.querySelector('.banner p')
+    const lbutton = document.querySelector('.banner .l')
+    const rbutton = document.querySelector('.banner .r')
+
     //const dots = document.querySelectorAll(`.dot li`)
     let i = 0
-    
-    let n = setInterval(function(){
-      if (i >= cont.length) {
-        i = 0
-        
-      } 
+    let n
+    //自动轮播函数
+    function autoStart() {
+      n = setInterval(function(){
+        i++
+        if (i >= cont.length) {
+          i = 0
+        } 
+        updateBanner(i)
+        //dots.forEach(dot => dot.classList.remove('active'));   
+        //dots[i].classList.add('active')
+        console.log(i)
+      }, 5000)
+    }
+
+    //重制自动轮播时间
+    function resetBanner() {
+      clearInterval(n)
+      autoStart()
+    }
+
+    //更新banner样式函数
+    function updateBanner(i) {
       banner.style.backgroundImage = `url(${cont[i].img})`
       title.innerHTML = `<strong>${cont[i].title}</strong>`  
-      //dots.forEach(dot => dot.classList.remove('active'));   
-      //dots[i].classList.add('active')
       document.querySelector('.dot .active').classList.remove('active')
       document.querySelector(`.dot li:nth-child(${i+1})`).classList.add('active')//li start at 1
+    }
 
-      i++ 
-      
-    }, 2000)
+    //点击更新到上一张banner样式，并重制自动轮播
+    lbutton.addEventListener('click',function(){
+      i--
+      if (i < 0) {
+        i = cont.length - 1
+      } 
+      updateBanner(i)
+      resetBanner()
+    })
+
+    //下一张
+    rbutton.addEventListener('click',function(){
+      i++
+      if (i >= cont.length) {
+        i = 0
+      } 
+      updateBanner(i)
+      resetBanner()
+    })
+
+    autoStart()
+
+
+
   </script>
 </body>
 </html>
