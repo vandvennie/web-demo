@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>True or Dare</title>
+  <style>
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+      height: 250px;
+      background-color: antiquewhite;
+      justify-content: center;
+      align-items: center;
+    }
+    .quiz {
+      width: 400px;
+      height: 100px;
+      /* background-color: aliceblue; */
+    }
+    .card div {
+      display: flex;
+      /* margin: 50PX; */
+      
+    }
+    .card div .start {
+      margin: 20px;
+    }
+
+    .card div .stop {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h4>True or Dare</h4>
+    <div class="quiz">Quiz: When was the last time you lied?</div>
+    <div>
+      <button class="start">Start</button>
+      <button class="stop" disabled>Stop</button>
+    </div>
+  </div>
+  <script>
+    const qzs=[
+      'Quiz: When was the last time you lied?', 
+      'Quiz: When was the last time you cried?', 
+      'Quiz: What\'s your biggest fear?', 
+      'Quiz: What\'s your biggest fantasy?', 
+      'Quiz: What\'s the strangest thing you\'ve ever eaten?'
+    ]
+    const qz = document.querySelector('.card .quiz')
+    const str = document.querySelector('.card .start')
+    const stp = document.querySelector('.card .stop')
+    let i = 0
+    let n
+    str.addEventListener('click', function(){
+      n = setInterval(function(){//这里需要声明一个全局变量
+        if (qzs.length === 0) {
+          qz.innerHTML = 'We ran out of questions.';
+          clearInterval(n);  // 停止定时器
+          str.disabled = true
+          stp.disabled = true 
+          return;  // 结束函数
+        }
+
+        // if (qzs.length === 1) {
+        //   str.disabled = true
+        //   stp.disabled = true  
+        // }
+
+        if (i >= qzs.length) {
+          i = 0}
+      
+        qz.innerHTML = `${qzs[i]}`
+        i++
+      },200)
+      str.disabled = true
+      stp.disabled = false
+    })
+
+    stp.addEventListener('click', function(){
+        clearInterval(n)
+        qzs.splice(i - 1, 1)
+        stp.disabled = true
+        str.disabled = false
+        console.log(i)
+        console.log(qzs)
+    })
+    
+  </script>
+</body>
+</html>
