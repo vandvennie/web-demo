@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>textbox</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .comment {
+      display: flex;
+      align-items: flex-start;
+      width: 1000px;
+      margin: 10px auto;
+      justify-content: center;
+    }
+    .comment .textbox {
+      margin-right: 20px;
+    }
+    .comment #input {
+      /* display: block; */
+      height: 40px;
+      width: 300px;
+      background-color: #f1f1f1;
+      border: 0px solid gray ;
+    }
+    .comment p {
+      text-align: right;
+      color: gray;
+      
+    }
+    .comment button {
+      height: 40px;
+      background-color: lightblue;
+      border: 1px solid lightskyblue;
+      padding: 5px;
+    }
+    .active {
+      height: 50px !important;
+    }
+    .activeText {
+      background-color: white !important;
+      border: 1px solid gray !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="comment">
+    <div class="textbox">
+      <textarea name="" id="input" placeholder="Please input your comment..." rows="2" maxlength="200"></textarea>
+      <p></p>
+    </div>
+    <button> Submit </button>
+  </div>
+  <script>
+    const input = document.querySelector(".comment #input")
+    const sbt = document.querySelector(".comment button")
+    let count = document.querySelector(".textbox p")
+    input.addEventListener('mouseenter', function(){
+      input.classList.add('active', 'activeText')
+      sbt.classList.add('active')
+      count.style.opacity = 1
+    })
+    input.addEventListener('mouseleave', function(){
+      input.classList.remove('active', 'activeText')
+      sbt.classList.remove('active')
+      count.style.opacity = 0 //设置元素透明度的属性, 1（完全不透明）
+    })
+    
+    input.addEventListener('input', function(){
+      count.innerHTML = `${input.value.length}/200`
+      
+    })
+  </script>
+</body>
+</html>
