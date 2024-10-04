@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Price Drop</title>
+  <link rel="stylesheet" href="tab_change.css">
+</head>
+<body>
+  <div class="priceDrop">
+    <div class="mPop">
+      <h3>Today Specials</h3>
+      <img src="./tab-image/haunted-house.png" alt="">
+      <div class="title">Halloween Haunted House</div>
+      <div class="price">$10.50</div>
+    </div>
+    <div class="categories">
+      <div class="tab">
+        <h4 class="t1">Halloween</h4>
+        <h4 class="t2">Fruit & Veg</h4>
+      </div>
+      <div class="productL">
+        <ul>
+          <!-- <li>
+            <img src="./tab-image/candy.png" alt="">
+            <div class="describe">
+              <h4>Snakes Lollies 230g</h4>
+              <div class="price">$4.00</div>
+              <div class="sold">1231 Sold</div>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script>
+     const tab1 = document.querySelector(".categories .tab .t1")
+     const tab2 = document.querySelector(".categories .tab .t2")
+    const halloween = [
+      {img: "./tab-image/candy.png", title:'Snakes Lollies 230g' , price: '$4.00', sold: '1231 Sold'},
+      {img: "./tab-image/ghost.png", title:'Light Up House Skull' , price: '$12.00', sold: '102 Sold'},
+      {img: "./tab-image/pumpkin.png", title:'Halloween Trick or Treat Pails' , price: '$4.00', sold: '100 Sold'},
+      {img: "./tab-image/witch-hat.png", title:'Halloween Wicth Hat' , price: '$8.00', sold: '234 Sold'}
+    ]
+    const fv = [
+      {img: "./tab-image/water.png", title:'Fruit Juice 230g' , price: '$4.00', sold: '1231 Sold'},
+      {img: "./tab-image/broccoli.png", title:'Broccoli' , price: '$12.00', sold: '102 Sold'},
+      {img: "./tab-image/carrot.png", title:'Carrot' , price: '$4.00', sold: '100 Sold'},
+      {img: "./tab-image/fruits.png", title:'Fruit Pack' , price: '$8.00', sold: '234 Sold'}
+    ]
+    let proList = document.querySelector(".categories .productL ul")
+
+    function proData(a) {
+      a.forEach(item => {
+        const li = document.createElement('li')
+        
+        li.innerHTML = `
+          <img src="${item.img}" alt="">
+          <div class="describe">
+            <h4>${item.title}</h4>
+            <div class="price">${item.price}</div>
+            <div class="sold">${item.sold}</div>
+          </div>
+        `
+
+        proList.appendChild(li) // 插入新元素
+      })
+    }
+    //default
+    tab1.classList.add("active")
+    proData(halloween)
+
+    tab1.addEventListener('click', function(){
+      proList.innerHTML = '<ul></ul>'
+      proData(halloween)
+      tab1.classList.toggle("active")
+      tab2.classList.toggle("active")
+    })
+    tab2.addEventListener('click', function(){
+      proList.innerHTML = '<ul></ul>'
+      proData(fv)
+      tab1.classList.toggle("active")
+      tab2.classList.toggle("active")
+    })
+  </script>
+</body>
+</html>
