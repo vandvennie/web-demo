@@ -76,6 +76,14 @@ body {
   transform: translate(1px, 1px);
 }
 
+.categories .tab .t3:hover {
+  color: orangered;
+  text-decoration: underline;
+}
+.categories .tab .t3:active {
+  transform: translate(1px, 1px);
+}
+
 .categories .tab h4 {
 margin: 0 10px;
 }
@@ -117,4 +125,14 @@ margin: 0 10px;
 .describe .sold {
   color: gray;
   font-size: small;
+}
+
+.cart {
+  display: flex-container;
+  justify-content: space-between;
+  height: 300px;
+  width: 740px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgb(200, 155, 200);
 }

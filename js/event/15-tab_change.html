@@ -18,13 +18,14 @@
       <div class="tab">
         <h4 class="t1">Halloween</h4>
         <h4 class="t2">Fruit & Veg</h4>
+        <h4 class="t3">Properties</h4>
       </div>
       <div class="productL">
         <ul>
           <!-- <li>
             <img src="./tab-image/candy.png" alt="">
             <div class="describe">
-              <h4>Snakes Lollies 230g</h4>
+              <h4 class="item-title">Snakes Lollies 230g</h4>
               <div class="price">$4.00</div>
               <div class="sold">1231 Sold</div>
             </div>
@@ -33,9 +34,28 @@
       </div>
     </div>
   </div>
+  <div class="cart">
+    <h3>Cart</h3>
+    <br>
+    <h4>items:</h4>
+    <div class="items-details"></div>
+    <h4>Cost:</h4>
+    <div class="total-cost">$0</div>
+    <div>
+      <button class="btn-order">Order</button>
+      <button class="btn-clear">Clear</button>
+  </div>
+  </div>
   <script>
      const tab1 = document.querySelector(".categories .tab .t1")
      const tab2 = document.querySelector(".categories .tab .t2")
+     const tab3 = document.querySelector(".categories .tab .t3")
+     const order = document.querySelector(".btn-order")
+     const clear = document.querySelector(".btn-clear")
+    let totalPrice = 0;
+    const totalCostDiv = document.querySelector('.total-cost'); 
+    const itemsDetailsDiv = document.querySelector('.items-details'); 
+
     const halloween = [
       {img: "./tab-image/candy.png", title:'Snakes Lollies 230g' , price: '$4.00', sold: '1231 Sold'},
       {img: "./tab-image/ghost.png", title:'Light Up House Skull' , price: '$12.00', sold: '102 Sold'},
@@ -48,20 +68,40 @@
       {img: "./tab-image/carrot.png", title:'Carrot' , price: '$4.00', sold: '100 Sold'},
       {img: "./tab-image/fruits.png", title:'Fruit Pack' , price: '$8.00', sold: '234 Sold'}
     ]
+    const properties = [
+      {img: "./tab-image/water.png", title:'123 Stirling St' , price: '$1444.00', sold: '1231 Sold'},
+      {img: "./tab-image/broccoli.png", title:'43 Goderich St' , price: '$1222.00', sold: '102 Sold'},
+      {img: "./tab-image/carrot.png", title:'77 Halo St' , price: '$664.00', sold: '100 Sold'},
+      {img: "./tab-image/fruits.png", title:'18 Wellington St' , price: '$875.00', sold: '234 Sold'}
+    ]
     let proList = document.querySelector(".categories .productL ul")
 
     function proData(a) {
       a.forEach(item => {
         const li = document.createElement('li')
         
-        li.innerHTML = `
+        li.innerHTML = 
+        `
           <img src="${item.img}" alt="">
           <div class="describe">
-            <h4>${item.title}</h4>
+            <h4 class="item-title">${item.title}</h4>
             <div class="price">${item.price}</div>
             <div class="sold">${item.sold}</div>
           </div>
         `
+
+        li.addEventListener('click', function(){
+          const price = li.querySelector(".price").textContent;
+          const title = li.querySelector(".item-title").textContent;
+          
+          const priceNumber = parseFloat(price.replace('$', ''));
+          totalPrice += priceNumber;
+          
+          totalCostDiv.textContent = `$${totalPrice.toFixed(2)}`;
+          
+          itemsDetailsDiv.textContent += title + "   ";
+          // alert(title);
+        })
 
         proList.appendChild(li) // 插入新元素
       })
@@ -82,6 +122,22 @@
       tab1.classList.toggle("active")
       tab2.classList.toggle("active")
     })
+    tab3.addEventListener('click', function(){
+      proList.innerHTML = '<ul></ul>'
+      proData(properties);
+      tab1.classList.toggle("active")
+      tab2.classList.toggle("active")
+    });
+    order.addEventListener('click', function(){
+      alert("You have paid "+totalCostDiv.textContent);
+      itemsDetailsDiv.textContent = "";
+      totalCostDiv.textContent = "$0";
+
+    });
+    clear.addEventListener('click', function(){
+      itemsDetailsDiv.textContent = "";
+      totalCostDiv.textContent = "$0";
+    });
   </script>
 </body>
 </html>
