@@ -117,22 +117,68 @@ margin: 0 10px;
   margin: 10px;
   /* background-color: aliceblue; */
 }
+.productL li .btn-add {
+  background-color: rgb(101, 195, 226);
+  border: 0px;
+  padding: 5px;
+  color: aliceblue;
+  
+}
 .describe .price {
   color: orangered;
   font-weight: bolder;
   
 }
 .describe .sold {
+  display: flex;
+  justify-content: space-between;
   color: gray;
   font-size: small;
+/* text-align: right; */
 }
 
 .cart {
-  display: flex-container;
-  justify-content: space-between;
-  height: 300px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* height: 300px; */
   width: 740px;
   margin: 20px auto;
   padding: 20px;
-  background-color: rgb(200, 155, 200);
+  background-color: rgb(222, 172, 222);
+}
+.cart h3 {
+  font-size: 20px;
+}
+.cart h4 {
+  margin: 10px 20px;
+  font-weight: bolder;
+}
+.cart .items-details {
+  margin: 0 20px;
+}
+.cart .total {
+  text-align: right;
+}
+
+.total .total-cost {
+  color: orangered;
+  font-weight: bolder;
+  font-size: large;
+  margin: 10px 0;
+}
+
+.total .btn-order {
+  background-color: rgb(219, 95, 219);
+  border: 0px;
+  padding: 5px;
+  color: aliceblue;
+  
+}
+.total .btn-clear {
+  background-color: rgb(219, 95, 219);
+  border: 0px;
+  padding: 5px;
+  color: aliceblue;
+  
 }
