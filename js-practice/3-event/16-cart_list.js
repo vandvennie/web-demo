@@ -31,3 +31,6 @@ for (i=0; i<selOnes.length; i++) {
   })
 }
 
+function onConfirm() {
+  alert("Your order has been confirmed!");
+}
