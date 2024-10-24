@@ -3,25 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Price Drop</title>
+  <link rel="stylesheet" href="./17-Event_Delegation.css">
 </head>
 <body>
-  <ul>
-  <!-- ul>li{NO$}*5 -->
-    <li>NO1</li>
-    <li>NO2</li>
-    <li>NO3</li>
-    <li>NO4</li>
-    <li>NO5</li>
-    <p>no change</p>
-  </ul>
-  <script>
-    const ul=document.querySelector('ul')
-    ul.addEventListener('click', function(e){
-      if (e.target.tagName === 'LI') {
-        e.target.style.color = 'red'
-      }
-    })
-  </script>
+  <div class="priceDrop">
+    <div class="mPop">
+      <h3>Today Specials</h3>
+      <img src="./tab-image/haunted-house.png" alt="">
+      <div class="title">Halloween Haunted House</div>
+      <div class="price">$10.50</div>
+    </div>
+    <div class="categories">
+      <div class="tab">
+        <ul>
+          <li><h4 class="t1">Halloween</h4></li>
+          <li><h4 class="t2">Fruit & Veg</h4></li>
+        </ul>
+      </div>
+      <div class="productL">
+        <ul></ul>
+      </div>
+    </div>
+  </div>
+  
+  <script src="./17-Event_Delegation.js"></script>
 </body>
 </html>

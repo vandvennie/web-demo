@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+body {
+  background-color: antiquewhite;
+}
+.priceDrop {
+  display: flex;
+  justify-content: space-between;
+  height: 300px;
+  width: 740px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: lightblue;
+}
+.mPop {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  height: 260px;
+  /* background-color: aliceblue; */
+  
+}
+.mPop h3 {
+  width: 200px;
+  font-size: 20px; 
+  margin-bottom: 15px;
+  text-align: left;
+}
+.mPop img {
+  height: 120px;
+  width: 120px;
+  margin-bottom: 10px;
+}
+.mPop .title {
+  font-size: 1.1em;
+  /* margin: 10px 0; */
+}
+.mPop .price {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: orangered;
+  /* margin-top: 10px; */
+}
+
+.categories .tab {
+  display: flex;
+  justify-content: left;
+  height: 23px;
+  align-items: flex-end;
+}
+.categories .tab .t1:hover {
+  color: orangered;
+  text-decoration: underline;
+}
+.categories .tab .t1:active {
+  transform: translate(1px, 1px);
+}
+.active {
+  color: orangered;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.categories .tab .t2:hover {
+  color: orangered;
+  text-decoration: underline;
+}
+.categories .tab .t2:active {
+  transform: translate(1px, 1px);
+}
+
+.categories .tab .t3:hover {
+  color: orangered;
+  text-decoration: underline;
+}
+.categories .tab .t3:active {
+  transform: translate(1px, 1px);
+}
+
+.categories .tab h4 {
+margin: 0 10px;
+}
+.categories ul  {
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.productL li {
+  display: flex;
+  width: 230px;
+  height: 100px;
+  /* background-color: azure; */
+  margin: 10px;
+  align-items: center;
+  
+}
+
+.categories .describe {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  height: 110px;
+  justify-content: space-evenly;
+}
+
+.categories .productL li img {
+  height: 80px;
+  margin: 10px;
+  /* background-color: aliceblue; */
+}
+.productL li .btn-add {
+  background-color: rgb(101, 195, 226);
+  border: 0px;
+  padding: 5px;
+  color: aliceblue;
+  
+}
+.describe .price {
+  color: orangered;
+  font-weight: bolder;
+  
+}
+.describe .sold {
+  display: flex;
+  justify-content: space-between;
+  color: gray;
+  font-size: small;
+/* text-align: right; */
+}
+
