@@ -76,13 +76,7 @@ body {
   transform: translate(1px, 1px);
 }
 
-.categories .tab .t3:hover {
-  color: orangered;
-  text-decoration: underline;
-}
-.categories .tab .t3:active {
-  transform: translate(1px, 1px);
-}
+
 
 .categories .tab h4 {
 margin: 0 10px;

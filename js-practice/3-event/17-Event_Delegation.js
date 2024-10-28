@@ -23,6 +23,7 @@ function card(category) {
   // 根据类别填充产品列表
   let products = category === 't1' ? t1 : t2;
 
+
   for (i=0; i<products.length; i++) {
   proLi.innerHTML += 
     `
@@ -37,15 +38,22 @@ function card(category) {
     `
   }
 }
+card('t1')
+
 tab.addEventListener('click',function(e) {
   if (e.target.tagName === 'H4') {
+    //移除默认tab的选中状态
+    document.querySelector('.tab .active').classList.remove('active')
+    //增加点击tab的选中状态
+    e.target.classList.add('active')
+
     let tabClass = e.target.className; // 获取类名
         console.log(tabClass);
 
     // 根据类名判断调用哪个产品类别
-    if (tabClass === 't1') {
+    if (tabClass === 't1 active') {
       card('t1');
-    } else if (tabClass === 't2') {
+    } else if (tabClass === 't2 active') {
       card('t2');
     }
   }
