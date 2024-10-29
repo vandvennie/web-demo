@@ -1,5 +1,5 @@
 const tab = document.querySelector(".categories .tab ul")
-const tabLi = document.querySelectorAll(".categories .tab li")
+// const tabLi = document.querySelectorAll(".categories .tab li")
 const proLi = document.querySelector(".productL ul")
 
 
@@ -41,20 +41,40 @@ function card(category) {
 card('t1')
 
 tab.addEventListener('click',function(e) {
+  // if (e.target.tagName === 'H4') {
+  //   //移除默认tab的选中状态
+  //   document.querySelector('.tab .active').classList.remove('active')
+  //   //增加点击tab的选中状态
+  //   e.target.classList.add('active')
+
+  //   let tabClass = e.target.className; // 获取类名
+    
+  //       console.log(tabClass);
+  // 根据类名判断调用哪个产品类别
+    // if (tabClass === 't1 active') {
+    //   card('t1');
+    // } else if (tabClass === 't2 active') {
+    //   card('t2');
+    // }
+  // }
+
+
+  // 使用自定义属性
+
   if (e.target.tagName === 'H4') {
-    //移除默认tab的选中状态
-    document.querySelector('.tab .active').classList.remove('active')
-    //增加点击tab的选中状态
-    e.target.classList.add('active')
-
-    let tabClass = e.target.className; // 获取类名
-        console.log(tabClass);
-
-    // 根据类名判断调用哪个产品类别
-    if (tabClass === 't1 active') {
+    // 获取 data-id 属性
+    const id = e.target.getAttribute('data-id');
+    document.querySelector('.tab .active').classList.remove('active');
+    e.target.classList.add('active');
+    
+    // 根据 data-id 属性决定加载的产品
+    if (id === '0') {
       card('t1');
-    } else if (tabClass === 't2 active') {
+    } else if (id === '1') {
       card('t2');
     }
   }
+
+  
+
 })
