@@ -6,10 +6,13 @@
   <title>Document</title>
 </head>
 <body>
-  <div data-id="0"></div>
+  <form action="http://www.itcast.cn"></form>
+    <input type="submit" value="Free Registration">
   <script>
-    const div = document.querySelector('div')
-    console.log(div.dataset.id)
+    const form = document.querySelector('form')
+    form.addEventListener('submit', function(e) {
+      e.preventDefault()
+    })
   </script>
 </body>
 </html>
