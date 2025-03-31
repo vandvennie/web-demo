@@ -1,0 +1,41 @@
+.custom-top {
+  border-top:20px solid #F76236;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  background-color: white; /* 设置背景为白色 */
+  color: #F76236;
+}
+.custom-bottom {
+  border-bottom:20px solid #F76236;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background-color: white; /* 设置背景为白色 */
+  color: #F76236;
+}
+.row {
+  display: flex; /* 确保 row 是 flex 容器 */
+  flex-wrap: wrap; /* 允许换行 */
+  gap: 16px; /* 16px 相当于 g-3 */
+}
+
+.col-sm {
+  background-color: #F5F5F5
+}
+
+h2{
+  color: #F76236;
+}
+
+/*  */
+/* 修改复选框选中后的背景颜色 */
+.form-check-input:checked {
+  background-color: #F76236;  /* 选中后背景变橙色 */
+  border-color: #F76236; /* 选中后边框变橙色 */
+}
+
+.form-check-input:checked + .form-check-label{
+  color: #F76236;/* 选中后边框变橙色 */
+  font-weight: bold;
+}
