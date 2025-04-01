@@ -8,40 +8,41 @@
   <title>Best Practices</title>
 </head>
 <body>
-  <div class="container-fluid p-5 text-center custom-top">
-    <h1 class="display-2">6 Best Coding Practices</h1>
-  </div>
+  <header style="background-image: url('image/lucas-george-wendt-8ZGgg6rhzxs-unsplash.jpg');">
+    <h1 class="display-2">15 Best Coding Practices</h1>
+  </header>
+
   <div class="container">
-    <div class="row g-3">
-      <div class="col-sm p-3 rounded text-center practice-1">
-        <img src="icon/交流.svg" alt="">
-        <h2>#1</h2>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="check1">
-          <label class="form-check-label" for="check1">Option 1</label>
-        </div>
+    <!-- 第一排：5个实践 -->
+    <div class="row g-3" id="row1"></div>
+    <!-- 第二排：5个实践 -->
+    <div class="row g-3" id="row2"></div>
+    <!-- 第三排：5个实践 -->
+    <div class="row g-3" id="row3"></div>
+  </div>
+
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-sm-6">
+        <section id="summary" class="bg-light p-4 rounded shadow-sm">
+          <p style="color: #F76236;">🤔Hmm, no best practice selected.</p>
+        </section>
       </div>
-      <div class="col-sm p-3 rounded text-center practice-2">
-        <img src="" alt="">
-        <h2></h2>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="check2">
-          <label class="form-check-label" for="check1"></label>
-        </div>
+      <div class="col-sm-5" >
+        <section class="bg-white"> 
+          <p>👍You have met <span id="met-practices-count">0</span> out of 15 best practices.</p>
+          <p id="success-criteria"><strong>Criteria:</strong> Meet at least 12 out of 15 best practices to receive a reward! ⬇️</p>
+          <div id="reward"></div>
+        </section>
       </div>
-      <div class="col-sm">2</div>
-      <div class="col-sm">2</div>
-      <div class="col-sm">2</div>
-      <div class="col-sm">2</div>
-      <div class="col-sm">2</div>
-      <div class="col-sm">2</div>
     </div>
   </div>
-  <div class="container-fluid p-5 text-center custom-bottom">
-    <div class="position-fixed end-0 p-2 text-secondary">
-      Powered by <strong>Veronica LYU</strong>
+  <div class="container-fluid p-3 text-center custom-bottom">
+    <div class="container text-end text-secondary">
+        Powered by <strong>Veronica LYU</strong>
     </div>    
-  </div>
+</div>
+
   <script src="script.js"></script>
 </body>
 </html>
