@@ -1,15 +1,17 @@
+/* Header section for banner */
 header{
-  display: flex;
-  width: 100%;  /* 让图片宽度充满父容器 */
+  display: flex;/* set display to flex */
+  width: 100%;  
   height: 250px; 
-  background-position: center center; /* 确保背景图像居中显示 */
+  background-position: center center; 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  object-fit: cover; 
+  object-fit: cover; /* make sure the image covers the entire header */
   align-items: center;
   justify-content: center;
 }
+/* Set the header words */
 header .display-2 {
   font-weight:bolder;
   text-align: center;
@@ -17,103 +19,158 @@ header .display-2 {
 }
 
 .row {
-  display: flex; /* 确保 row 是 flex 容器 */
-  flex-wrap: wrap; /* 允许换行 */
-  gap: 16px; /* 16px 相当于 g-3 */
-  align-items: stretch;
+  display: flex; 
+  flex-wrap: wrap; /* allow items to wrap */
+  gap: 16px; /* set gap between items */
+  align-items: stretch; /* stretch items to fill the row */
 }
 
 .col-md-6 {
   display: flex;
-  flex: 1; /* 使左右列的宽度相等 */
+  flex: 1; /* make both columns take equal space */
   flex-direction: column;
   justify-content: center;  
   align-items: center;
-  padding: 1px; /* 可选，增加内边距 */
+  padding: 1px; 
 }
 
+/* Set the card hover style */
 .praCard:hover {
   transform: translate(-10px, -10px);
-  
   }
 
 .col-sm img {
   width: 80px;
   height: auto;
-
 }
 
-h1{
-  color: #F76236;
-}
-
-/* 修改复选框选中后的背景颜色 */
-.form-check-input:checked {
-  background-color: #F76236;  /* 选中后背景变橙色 */
-  border-color: #F76236; /* 选中后边框变橙色 */
-}
-
-
-
-.form-check-input:checked + .form-check-label{
-  color: #F76236;/* 选中后边框变橙色 */
-  font-weight: bold;
-}
-
-
-
-#right-column {
-  display: flex;
-  justify-content: center; /* 水平居中图片 */
-  align-items: center; /* 垂直居中图片 */
-  height: 100vh; /* 让右侧填充整个屏幕 */
-  background-color:#00AC9E;
-}
-
-#left-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* 让 info 在剩余空间垂直居中 */
-  align-items: center; /* 水平居中 */
-  width: 50%;
-  height: 100vh; /* 让 left 充满整个屏幕高度 */
-  padding: 20px;
-  position: relative;
-}
-
-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* 让导航栏铺满宽度 */
-}
-
-.info {
-  flex-grow: 1; /* 让 info 占据剩余空间 */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* 让文本内容在 vertical space 里居中 */
-  align-items: center ;
-  text-align: left;
-  width: 80%; /* 限制 info 宽度，避免过于靠边 */
-}
-
-
-.info {
-  width: auto; /* 确保内容不会占满整个宽度 */
-  text-align: center; /* 让文本内容居中 */
-}
-.name {
-  margin-bottom: 80px;
-}
-
-pre {
-  margin: 40px;
-}
+/* Custom bottom border styling */
 .custom-bottom {
   border-bottom:20px solid #F76236;
   border-left: none;
   border-right: none;
   border-top: none;
-  background-color: white; /* 设置背景为白色 */
+  background-color: white; 
+}
+
+/* Checkbox styling when checked */
+.form-check-input:checked {
+  background-color: #F76236;  
+  border-color: #F76236; 
+}
+
+/* Checkbox label styling when checked */
+.form-check-input:checked + .form-check-label{
+  color: #F76236;
+  font-weight: bold;
+}
+
+.name, .subtitle, .references, #thx {
+  color: #F76236;
+}
+
+pre, .name, .subtitle {
+  margin: 80px 0;
+}
+
+/* Customize the font color of the text */
+p a {
+  color: black; 
+  text-decoration: underline; 
+}
+
+p a:hover {
+  color: #00AC9E; 
+}
+
+#checkRewardBtn {
+  background-color: #F76236;
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+#references {
+  margin-top: 30px;
+}
+
+/* Make the entire bio area take up the entire viewport */
+#bio .row {
+  display: flex;
+  height: 100vh; /* make it full height */
+  flex-wrap: wrap; /* allow items to wrap */
+}
+
+/* Left side */
+#left-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the top */
+  align-items: center; /* Center items horizontally */
+  width: 50%; 
+  height: 100vh; 
+  padding: 20px;
+  position: relative;
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+/* Let the nav bar be fixed */
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+/* Let the info area in the left column be flexible */
+.info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: flex-start; 
+  width: 80%; 
+  text-align: left; 
+  margin-top: 60px; /* Adjust margin to avoid overlap with nav */
+  padding: 30px;
+}
+
+/* right side */
+.right-column {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 50%;
+  height: 100vh;
+  background-color: #00AC9E;
+}
+
+/* Let the image be responsive */
+.right-column img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 50%; /* Make the image circular */
+}
+
+/* Media query for screens smaller than 768px */
+@media (max-width: 768px) {
+  /* Change the layout of the bio section to vertical */
+  #bio .row {
+    flex-direction: column; 
+  }
+
+  /* Adjust column widths for smaller screens */
+  #left-column, .right-column {
+    width: 100%; /* Make both columns full width */
+    height: auto; 
+  }
+
+  /* Adjust the nav bar */
+  nav {
+    position: relative; 
+  }
+
+  /* Adjust the info area */
+  .right-column img {
+    max-width: 90%; /* Make the image smaller on mobile */
+  }
 }

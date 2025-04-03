@@ -1,4 +1,4 @@
-// 定义实践数据数组
+// Define the practices array with 15 best practices
 const practices = [
   {
     title: "# 1", 
@@ -77,11 +77,8 @@ const practices = [
   }
 ];
 
-function updateState() {
-  let checkedState = {};
-}
 
-// 用于生成实践卡片的函数
+// Dynamically generate HTML for each practice
 function generatePracticeHTML(practice, index) {
   return `
     <div class="col-sm p-3 bg-light rounded text-center praCard">
@@ -94,10 +91,11 @@ function generatePracticeHTML(practice, index) {
   `;
 }
 
-// 动态生成15个实践，每排5个
-const rows = ['html', 'css', 'js']; // 包含三排
+// Generate HTML for each row
+const rows = ['html', 'css', 'js']; // mapping row IDs
 let practiceCount = 0;
 
+// Traverse the rows and fill them with practices
 rows.forEach(rowId => {
   let rowHTML = '';
   for (let i = 0; i < 5; i++) {
@@ -106,17 +104,16 @@ rows.forEach(rowId => {
       practiceCount++;
     }
   }
-  document.getElementById(rowId).innerHTML = rowHTML; // 将生成的内容放入对应的row中
+  document.getElementById(rowId).innerHTML = rowHTML; // fill the row with generated HTML
 });
 
-// 获取 content p 元素
 const pContent = document.querySelector("#content p");
 
-// 监听复选框变化并更新 content 内容
+// Update the content based on selected practices
 function updateContent() {
   let selectedContent = [];
 
-  // 遍历所有实践，找出已选中的
+  // Iterate through all practices and check if they are selected
   practices.forEach((practice, index) => {
       const checkbox = document.querySelector(`#check${index}`);
       if (checkbox && checkbox.checked) {
@@ -124,7 +121,7 @@ function updateContent() {
       }
   });
 
-  // 只显示最后一个选中的内容
+  // Display the selected content or a default message
   pContent.innerHTML = selectedContent.length > 0
       ? `<strong>🎉You just checked:</strong><br>${selectedContent[selectedContent.length - 1]}` // 只显示最后选中的内容
       : "🤔Hmm, no best practice selected.";
@@ -132,41 +129,23 @@ function updateContent() {
 }
 
 
-
-// 更新已勾选的实践数目
+// Function to fetch a random animal image from the API
 function updateProgress() {
   const checkedBoxes = document.querySelectorAll("input[type='checkbox']:checked").length;
   document.getElementById("met-practices-count").textContent = checkedBoxes;
 
-  // 如果已选中 >= 2，显示奖励图片
+  const rewardContainer = document.getElementById("reward");
+
+  // Only fetch a new image if the number of checked boxes is 12 or more
   if (checkedBoxes >= 2) {
-    fetchRandomAnimalImage();
+    fetchRandomAnimalImage("reward");// A function to fetch a random animal image in the reward.js
   } else {
-    rewardContainer.innerHTML = ""; // 清空奖励图片
+    rewardContainer.innerHTML = ""; // Otherwise, clear the reward container
   }
 }
-const rewardContainer = document.getElementById("reward");
 
 
-// 发送 AJAX 请求以获取可爱动物图片
-function fetchRandomAnimalImage() {
-  fetch('https://api.thecatapi.com/v1/images/search') // 示例使用猫咪图片 API
-    .then(response => response.json())
-    .then(data => {
-      const img = document.createElement("img");
-      img.src = data[0].url;
-      img.alt = "Cute Animal";
-      img.style.width = "300px"; // 你可以根据需要调整图片大小
-      rewardContainer.innerHTML = ""; // 清空之前的内容
-      rewardContainer.appendChild(img);
-    })
-    .catch(error => {
-      console.error("Error fetching image:", error);
-      rewardContainer.innerHTML = "Oops! Something went wrong.";
-    });
-}
-
-// 监听复选框变化并保存到 localStorage
+// Save the state of checkboxes to localStorage
 function updateState() {
   let checkedState = {};
 
@@ -179,11 +158,11 @@ function updateState() {
 
   localStorage.setItem("checkedPractices", JSON.stringify(checkedState));
 
-  updateContent(); // 确保更新选中的内容显示
-  updateProgress();
+  updateContent(); // Update content when checkbox state changes
+  updateProgress();// Update progress when checkbox state changes
 }
 
-// 页面加载时恢复复选框状态
+// Restore the state of checkboxes from localStorage
 function restoreState() {
   const savedState = JSON.parse(localStorage.getItem("checkedPractices") || "{}");
 
@@ -194,10 +173,18 @@ function restoreState() {
     }
   });
 
-  updateContent(); // 确保恢复时更新内容
-  updateProgress();
+  updateContent(); // Update content when restoring state
+  updateProgress();// Update progress when restoring state
 }
 
-// 页面加载完成后恢复状态
+// Restore the state when the page loads
 document.addEventListener("DOMContentLoaded", restoreState);
+
+// Restore the state when the page loads
+document.querySelector("#checkRewardBtn")
+
+ 
+
+
+
 
