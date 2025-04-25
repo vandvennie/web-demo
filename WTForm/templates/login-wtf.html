@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <!-- 方案2:使用WTForm -->
+  <form method="post">
+    {{ form.hidden_tag() }}
+    {{ form.csrf_token }}
+    {{ form.username.label }} {{ form.username }}<br>
+    {{ form.password.label }} {{ form.password }}<br>
+    {{ form.password2.label }} {{ form.password2 }}<br>
+    {{ form.submit }}<br>
+    <!-- 获取flash闪现的加密消息 -->
+    {% for message in get_flashed_messages() %}
+      <div class="alert alert-info">{{ message }}</div>
+    {% endfor %}
+  </form>
+  
+</body>
+</html>
