@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>control statement</title>
+</head>
+<body>
+  <div>
+    {% if age >= 18 %}
+      <div>legal to enter</div>
+    {% elif age < 18 %}
+      <div>not legal to enter</div>
+    {% else %}
+      <div>age not specified</div>
+    {% endif %}
+  </div>
+
+  <div>
+    {% for book in books %}
+     <div>Book name: {{book.name}}; Book author: {{book.author}}</div>
+    {% endfor%}
+  </div>
+</body>
+</html>
